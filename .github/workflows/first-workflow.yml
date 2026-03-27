@@ -12,3 +12,11 @@ jobs:
     steps:
       - name: Print Hello
         run: echo "Hello from GitHub Actions 2"
+
+  demo-job2:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Hello
+        run: echo "Hello from GitHub Actions 2demojob2"      
+                   
