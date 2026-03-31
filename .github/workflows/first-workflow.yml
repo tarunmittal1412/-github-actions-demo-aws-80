@@ -1,31 +1,23 @@
-name: Multi Job Pipeline
+name: Conditional Execution Demo
 
 on:
   push:
     branches:
       - main
+      - dev
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Build step
-        run: |
-          echo "Building application"
-
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test step
-        run: |
-          echo "Running tests"
-
   deploy:
-    needs: test
     runs-on: ubuntu-latest
-    steps:
-      - name: Deploy step
-        run: |
-          echo "Deploying application"
 
+    steps:
+      - name: Always run
+        run: echo "This runs on all branches"
+
+      - name: Run only on main
+        if: github.ref == 'refs/heads/main'
+        run: echo "Deploying to production"
+
+      - name: Run only on dev
+        if: github.ref == 'refs/heads/dev'
+        run: echo "Deploying to dev environment"
