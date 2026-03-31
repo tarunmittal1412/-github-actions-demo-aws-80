@@ -20,4 +20,4 @@ jobs:
 
       - name: Run only on dev
         if: github.ref == 'refs/heads/dev'
-        run: echo "Deploying to dev environment"
+        run: echo "Deploying to dev envifggsdgfdsgronment"
