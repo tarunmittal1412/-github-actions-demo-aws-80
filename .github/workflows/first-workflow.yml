@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - dev
+      - feature
 
 jobs:
   deploy:
@@ -16,7 +17,7 @@ jobs:
 
       - name: Run only on main
         if: github.ref == 'refs/heads/main'
-        run: echo "Deploying to production dfdfgbdsb dgdsg"
+        run: echo "Deploying to production dfdfgbdsbsdgargaregaer dgdsg"
 
       - name: Run only on dev
         if: github.ref == 'refs/heads/dev'
